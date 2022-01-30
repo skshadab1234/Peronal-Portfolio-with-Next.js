@@ -1,22 +1,23 @@
 import Link from 'next/link';
 import React from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
 import { DiCssdeck } from 'react-icons/di';
 
 import { Container, Div1, Div2, Div3, NavLink, SocialIcons } from './HeaderStyles';
 
 const Header = () =>  (
+  
   <Container>
     <Div1>
       <Link href="/">
         <a style={{ display: 'flex', alignItems: 'center', color:"white" }}>
-          <DiCssdeck size="3rem" /> <span>Portfolio</span>
+          <DiCssdeck size="3rem" /> <span>Shadab Portfolio</span>
         </a>
       </Link>
     </Div1>
     <Div2>
       <li>
-        <Link href="#projects">
+        <Link  href="#projects">
           <NavLink>Projects</NavLink>
         </Link>
       </li>
@@ -32,13 +33,13 @@ const Header = () =>  (
       </li>        
     </Div2>
       <Div3>
-        <SocialIcons href="https://google.com">
+        <SocialIcons target="_blank" href="https://github.com/skshadab1234">
           <AiFillGithub size="3rem" />
         </SocialIcons>
-        <SocialIcons href="https://google.com">
-          <AiFillLinkedin size="3rem" />
+        <SocialIcons target="_blank" href="https://www.youtube.com/c/ProgrammingwithShadab">
+          <AiFillYoutube size="3rem" />
         </SocialIcons>
-        <SocialIcons href="https://google.com">
+        <SocialIcons target="_blank" href="https://www.instagram.com/sk_shadab1234/">
           <AiFillInstagram size="3rem"/>
         </SocialIcons>
       </Div3>

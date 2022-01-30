@@ -1,10 +1,11 @@
 import React from 'react';
-
+import Link from 'next/link';
 import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
 
 const Hero = (props) => (
+  
   <>
     <Section row nopadding>
       <LeftSection>
@@ -13,9 +14,13 @@ const Hero = (props) => (
           My Personal Portfolio
         </SectionTitle>
         <SectionText>
-        The purpose of JavaScript Mastery is to help aspiring and established developers to take their development skills to the next level and build awesome apps.
+        My Name is Khan Shadab and my purpose is to help aspiring and established developers to take their development skills to the next level and build awesome websites.
         </SectionText>
-        <Button onClick={props.handleClick}>Learn More</Button>
+        <Link href="/whoisshadab">
+          <a >
+            {/* <Button>Know me Better</Button> */}
+          </a>
+        </Link>
       </LeftSection>
     </Section>
   </>
