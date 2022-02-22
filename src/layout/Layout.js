@@ -11,7 +11,7 @@ export const Layout = ({children}) => {
         <title>Home Page</title>
       </Head>
      <Header/>
-     <main>{children}</main> 
+     <main  style={{padding:  20}}>{children}</main> 
      <Footer/>
     </Container>
   )

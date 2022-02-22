@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from 'react';
 
-import { BlogCard, CardInfo, ExternalLinks, GridContainer, HeaderThree, Hr, TitleContent, UtilityList, Img } from './ProjectsStyles';
+import { BlogCard, CardInfo, ExternalLinks, GridContainer, HeaderThree, Hr, TitleContent, UtilityList, Img, Filterbutton } from './ProjectsStyles';
 import { Section, SectionDivider, SectionTitle } from '../../styles/GlobalComponents';
-// import { projects } from '../../constants/constants';
 import database from "../../constants/firebase";
+import FilterBtn from "./FilterBtn";
 
 function Projects() {
   const [projects, setProject] = React.useState([]);
+  const [allprojects, setAllProject] = React.useState([]);
 
     useEffect(() => {
-        // database    
-        //  .collection("people")
-        //  .onSnaphot((snapshot) =>
-        // setPeople(snapshot.docs.map((doc) => doc.data())))
-       
-        database.collection('projects').onSnapshot(snapshot => {
-            setProject(snapshot.docs.map(doc => doc.data()))
-        })
+      database.collection('projects').onSnapshot(snapshot => {
+          setProject(snapshot.docs.map(doc => doc.data()))
+          setAllProject(snapshot.docs.map(doc => doc.data()))
+      })
     }, [])
+    
+    const FilterData = (category) => {
+      if(category === 'all') {
+        setProject(allprojects);
+        return;
+      }
+      const updateProjects = allprojects.filter((curr) =>{
+        return curr.category === category;
+      });
 
+      setProject(updateProjects)
+    }
  return(
   <Section nopadding id="projects">
   <SectionDivider />
   <SectionTitle main>Projects</SectionTitle>
+    <FilterBtn Filterbutton={Filterbutton} FilterData = {FilterData} ProjectsLists = {projects}/>
   <GridContainer>
     {projects.map((p, i) => {
       return (

@@ -11,6 +11,7 @@ export const Container = styled.div`
   position: sticky;
   width: 100%;
   z-index: 999;
+  align-items: center;
 
   @media ${(props) => props.theme.breakpoints.sm} {
     display: grid;

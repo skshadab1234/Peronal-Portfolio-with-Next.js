@@ -9,7 +9,7 @@ export const Img = styled.img`
 
 export const GridContainer = styled.section`
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+grid-template-columns: repeat(3, minmax(auto, 1fr));
 padding: 3rem;
 place-items: center;
 column-gap: 2rem;
@@ -20,22 +20,29 @@ row-gap: 3rem;
   padding: 2rem;
   padding-bottom: 0;
 }
+@media ${(props) => props.theme.breakpoints.md}{
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+
+}
 
 `
 export const BlogCard = styled.div`
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(80, 78, 78, 0.5);
   text-align: center;
-  width: 400px;
+  width: 300px;
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
+  }
+  @media ${(props) => props.theme.breakpoints.md991} {
+    width: 250px;
   }
 `;
 export const TitleContent = styled.div`
   text-align: center;
   z-index: 20;
-  width: 100%;
-
+  padding: 10px;
+  
 `;
 
 
@@ -44,7 +51,15 @@ export const HeaderThree = styled.h3`
   letter-spacing: 2px;
   color: #9cc9e3;
   padding: .5rem 0;
-  font-size: ${(props) => props.title ? '3rem' : '2rem'};
+  display: -webkit-box;
+max-width: 400px;
+height: 54.2px;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+line-height: 1.625;
+  font-size: ${(props) => props.title ? '1.5rem' : '.5rem'};
 `;
 
 export const Hr = styled.hr`
@@ -68,13 +83,14 @@ export const Intro = styled.div`
 
 export const CardInfo = styled.p`
   width: 100%;
-  padding: 0 50px;
+  padding: 0 20px;
   color: #e4e6e7;
-  font-style: 2rem;
   line-height: 24px;
   text-align: justify;
+  font-size: 14px;
   @media ${(props) => props.theme.breakpoints.sm} {
-    padding:.3rem
+    padding: .8rem;
+    font-size: 14px;
   
 }
 `;
@@ -109,4 +125,42 @@ padding: 2rem;
 export const Tag = styled.li`
 color: #d8bfbf;
 font-size: 1.5rem;
+`;
+
+export const Filterbutton = styled.div`
+padding: 15px;
+text-transform: capitalize;
+cursor: pointer;
+background: #011324;
+margin: 10px;
+border-radius: 10px;
+&:hover {
+  background: linear-gradient(270deg,#13ADC7 0%,#945DD6 100%)
+}
+&:focus {
+  background: linear-gradient(270deg,#13ADC7 0%,#945DD6 100%)
+}
 `
+
+export const Div1Filter = styled.div`
+display:flex;
+
+@media ${(props) => props.theme.breakpoints.md} {
+  overflow-x: auto
+}
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
