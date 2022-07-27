@@ -1,13 +1,21 @@
-import React from 'react';
+import {React,useEffect,useState} from 'react';
 import Link from 'next/link';
 import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
-import NavDropDown from '../NavDropDown';
+import {AiFillFilePdf} from 'react-icons/ai'
+import database from "../../constants/firebase";
 
-const Hero = (props) => (
-  
-  <>
+function Hero(){
+const [resumedownload, setResume] = useState([])
+  useEffect(() => {
+    database.collection('heroButton').onSnapshot(snapshot => {
+      setResume(snapshot.docs.map(doc => doc.data()))
+    })
+  }, [])
+
+  console.log(resumedownload[0].link);
+ return <>
     <Section row nopadding>
       <LeftSection>
         <SectionTitle main center>
@@ -17,14 +25,12 @@ const Hero = (props) => (
         <SectionText>
          My Job is to help aspiring and established developers to take their development skills to the next level and build awesome websites.
         </SectionText>
-        <Link href="/whoisshadab">
-          <a >
-            {/* <Button>Know me Better</Button> */}
+          <a target="_blank" href = {resumedownload[0].link}>
+            <Button ><AiFillFilePdf size="3rem" /> <span style={{"margin-left":"10px"}}> {resumedownload[0].text} </span></Button>
           </a>
-        </Link>
       </LeftSection>
     </Section>
   </>
-);
+}
 
 export default Hero;

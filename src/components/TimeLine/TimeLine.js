@@ -41,7 +41,7 @@ const Timeline = () => {
     }
 
     window.addEventListener('resize', handleResize);
-    database.collection("my-journey-timeline").orderBy("year", "asc").onSnapshot(snapshot => {
+    database.collection("my-journey-timeline").orderBy("year", "desc").onSnapshot(snapshot => {
       setActiveItem(snapshot.docs.map(doc => doc.data()))
   })
   }, []);
@@ -52,6 +52,7 @@ const Timeline = () => {
       <SectionText>
       My Name is Khan Shadab and my purpose is to help aspiring and established developers to take their development skills to the next level and build awesome websites.
       </SectionText>
+     
       <CarouselContainer ref={carouselRef} >
         <>
           {activeItem.map((item, index) => (

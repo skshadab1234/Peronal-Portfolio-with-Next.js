@@ -19,14 +19,20 @@ const FilterBtn = ({ Filterbutton,ProjectsLists, FilterData }) => {
         <Div1Filter>
             {
                 allCat.map((currElement, index) => {
-                    return <Filterbutton key ={index}  onClick={() => {
+                    var styleFilterBtn ='';
+                    if (index == 0) {
+                         styleFilterBtn = 'background:linear-gradient(270deg,#13ADC7 0%,#945DD6 100%)';
+                    }
+                    return <Filterbutton key ={index} 
+                        style={{styleFilterBtn}}    
+                        onClick={() => {
                         FilterData(currElement);
                         for (let i = 0; i < allCat.length; i++) {
                             document.getElementsByClassName("ProjectsStyles__Filterbutton-l76idc-12")[i].style.background = "";
                         }
                         document.getElementsByClassName("ProjectsStyles__Filterbutton-l76idc-12")[index].style.background = "linear-gradient(270deg,#13ADC7 0%,#945DD6 100%)";
                     }
-                    }>{currElement}</Filterbutton>
+                    }>{currElement+styleFilterBtn}</Filterbutton>
                 })
             }
         </Div1Filter>
