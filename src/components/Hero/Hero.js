@@ -18,7 +18,7 @@ const [resumedownload, setResume] = useState([])
     <Section row nopadding>
       <LeftSection>
         <SectionTitle main center>
-          Hii, I am <br />
+          Hi, I am <br />
           Khan Shadab Alam
         </SectionTitle>
         <SectionText>
