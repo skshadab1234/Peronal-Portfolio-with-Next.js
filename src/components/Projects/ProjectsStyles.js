@@ -34,9 +34,7 @@ export const BlogCard = styled.div`
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
   }
-  @media ${(props) => props.theme.breakpoints.md991} {
-    width: 250px;
-  }
+
 `;
 export const TitleContent = styled.div`
   text-align: center;

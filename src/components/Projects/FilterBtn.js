@@ -11,14 +11,22 @@ const FilterBtn = ({ Filterbutton,ProjectsLists, FilterData }) => {
             setProject(snapshot.docs.map(doc => doc.data()))
         })
       }, [])
-    // Spread Operator 
+
+      // Spread Operator 
     const allCat = ["all", ...new Set(projects.map((currEle) => currEle.category))]
     
     return (
         <Div1Filter>
             {
                 allCat.map((currElement, index) => {
-                    return <Filterbutton  key ={index} onClick={() => FilterData(currElement)}>{currElement}</Filterbutton>
+                    return <Filterbutton key ={index}  onClick={() => {
+                        FilterData(currElement);
+                        for (let i = 0; i < allCat.length; i++) {
+                            document.getElementsByClassName("ProjectsStyles__Filterbutton-l76idc-12")[i].style.background = "";
+                        }
+                        document.getElementsByClassName("ProjectsStyles__Filterbutton-l76idc-12")[index].style.background = "linear-gradient(270deg,#13ADC7 0%,#945DD6 100%)";
+                    }
+                    }>{currElement}</Filterbutton>
                 })
             }
         </Div1Filter>

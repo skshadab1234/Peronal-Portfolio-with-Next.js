@@ -24,14 +24,15 @@ function Projects() {
       const updateProjects = allprojects.filter((curr) =>{
         return curr.category === category;
       });
-
       setProject(updateProjects)
     }
+
+
  return(
   <Section nopadding id="projects">
   <SectionDivider />
   <SectionTitle main>Projects</SectionTitle>
-    <FilterBtn Filterbutton={Filterbutton} FilterData = {FilterData} ProjectsLists = {projects}/>
+    <FilterBtn Filterbutton={Filterbutton}  FilterData={FilterData} ProjectsLists = {projects}/>
   <GridContainer>
     {projects.map((p, i) => {
       return (
