@@ -14,7 +14,6 @@ const [resumedownload, setResume] = useState([])
     })
   }, [])
 
-  console.log(resumedownload[0].link);
  return <>
     <Section row nopadding>
       <LeftSection>
