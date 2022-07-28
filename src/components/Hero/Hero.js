@@ -7,12 +7,14 @@ import {AiFillFilePdf} from 'react-icons/ai'
 import database from "../../constants/firebase";
 
 function Hero(){
-const [resumedownload, setResume] = useState([])
-  useEffect(() => {
-    database.collection('heroButton').onSnapshot(snapshot => {
-      setResume(snapshot.docs.map(doc => doc.data()))
-    })
-  }, [])
+    const [resumedownload, setResume] = useState([0])
+    useEffect(() => {
+      database.collection('heroButton').onSnapshot(snapshot => {
+        setResume(snapshot.docs.map(doc => doc.data()))
+      })
+    }, [resumedownload])
+
+  
 
  return <>
     <Section row nopadding>

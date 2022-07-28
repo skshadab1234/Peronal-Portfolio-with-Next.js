@@ -32,7 +32,7 @@ function Projects() {
   <Section nopadding id="projects">
   <SectionDivider />
   <SectionTitle main>Projects</SectionTitle>
-    <FilterBtn Filterbutton={Filterbutton}  FilterData={FilterData} ProjectsLists = {projects}/>
+    <FilterBtn Filterbutton={Filterbutton}  FilterData={FilterData} />
   <GridContainer>
     {projects.map((p, i) => {
       return (
